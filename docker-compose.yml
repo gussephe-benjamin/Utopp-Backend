@@ -19,15 +19,5 @@ services:
       - "${BACKEND_PORT}:8000"
     depends_on:
       - db
-  frontend:
-    build: ./Frontend/mi-app
-    env_file: .env
-    ports:
-      - "${FRONTEND_PORT}:5173"
-    volumes:
-      - ./Frontend/mi-app:/app # lo que escribes en tu máquina aparece instantáneamente dentro del contenedor
-      - /app/node_modules # Protege los node_modules instalados dentro del contenedor
-    depends_on:
-      - backend
 volumes:
   pgdata:
